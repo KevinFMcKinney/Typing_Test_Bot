@@ -20,6 +20,7 @@ class Typing_Test_Typer:
             try:
                 play_button = self.chrome.find_element_by_class_name('start-btn')
                 play_button.click()
+                break
             except:
                 time.sleep(2)
         
@@ -27,8 +28,12 @@ class Typing_Test_Typer:
     def take_test(self):
 
         # Load textbox element
-        time.sleep(5)
-        text_area = self.chrome.find_element_by_id('test-edit-area')
+        while True:
+            try:
+                text_area = self.chrome.find_element_by_id('test-edit-area')
+                break
+            except:
+                time.sleep(2)
 
         # Type in the textbox
         while True:
